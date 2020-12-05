@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1c175cd-ec7e-4e8d-9063-6a05ba393bd6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ac1be7b9-b19b-4e45-8cd6-2b400de85c3c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ac1be7b9-b19b-4e45-8cd6-2b400de85c3c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_05_081424_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_05_081424_create_posts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +187,7 @@
       <workItem from="1607089107323" duration="267000" />
       <workItem from="1607090084489" duration="2177000" />
       <workItem from="1607092367342" duration="4741000" />
-      <workItem from="1607152285879" duration="3485000" />
+      <workItem from="1607152285879" duration="6732000" />
     </task>
     <servers />
   </component>
