@@ -41,6 +41,11 @@ class PostController extends Controller
     }
   }
 
+  public function getPost(Post $post)
+  {
+    return view('admin.posts.edit',['post'=>$post]);
+  }
+
   public function destroy(Post $post)
   {
     try {

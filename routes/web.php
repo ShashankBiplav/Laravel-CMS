@@ -23,6 +23,8 @@ Route::middleware('auth')->group(function () {
 
   Route::post('/admin/posts/create',[PostController::class, 'store'])->name('posts.store');
 
+  Route::get('/admin/posts/{post}',[PostController::class,'getPost'])->name('posts.get');
+
   Route::delete('/admin/posts/{post}',[PostController::class,'destroy'])->name('posts.destroy');
 
 });

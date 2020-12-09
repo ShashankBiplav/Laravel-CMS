@@ -48,7 +48,11 @@
                 <td>{{$post->created_at->diffForHumans()}}</td>
                 <td>{{$post->updated_at->diffForHumans()}}</td>
                 <td>
+                  <form action="{{route('posts.get',$post->id)}}" method="get">
+                    @csrf
                   <button class="btn btn-outline-warning btn-block"> Edit</button>
+                    @method('GET')
+                  </form>
                   <form action="{{route('posts.destroy',$post->id)}}" method="post">
                     @csrf
                     <button class="btn btn-outline-danger btn-block">Delete</button>
