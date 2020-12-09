@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function () {
 
   Route::get('/admin/posts/{post}',[PostController::class,'getPost'])->name('posts.get');
 
+  Route::put('/admin/posts/{post}',[PostController::class, 'update'])->name('posts.update');
+
   Route::delete('/admin/posts/{post}',[PostController::class,'destroy'])->name('posts.destroy');
 
 });

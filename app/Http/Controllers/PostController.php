@@ -43,7 +43,28 @@ class PostController extends Controller
 
   public function getPost(Post $post)
   {
-    return view('admin.posts.edit',['post'=>$post]);
+    return view('admin.posts.edit', ['post' => $post]);
+  }
+
+  public function update(Post $post)
+  {
+    $validatedPost = request()->validate([
+      'title' => 'required | min:8 | max:250',
+      'post_image' => 'mimes:jpeg,jpg,png',
+      'body' => 'required | min:300'
+    ]);
+    if (request('post_image')) {
+      $post['post_image'] = request()->post_image->store('images', 'public');
+    }
+    $post->title = $validatedPost['title'];
+    $post->body = $validatedPost['body'];
+    auth()->user()->posts()->save($post);
+    try {
+      auth()->user()->posts()->save($post);
+      return redirect()->route('posts.index')->with('update-post-message', 'Post updated successfully!');
+    } catch (\Exception $e) {
+      return redirect()->route('posts.index')->with('update-post-error', 'Unable to update post!');
+    }
   }
 
   public function destroy(Post $post)

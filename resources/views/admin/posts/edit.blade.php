@@ -8,7 +8,7 @@
     @else
       <div></div>
     @endif
-    <form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('posts.update', $post->id)}}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="form-group">
         <label for="title">Title</label>
@@ -33,6 +33,7 @@
         <textarea name="body" id="body" cols="90" rows="10" >{{$post->body}}</textarea>
       </div>
       <button class="btn btn-primary">Post</button>
+      @method('PUT')
     </form>
   @endsection
 </x-admin-master>

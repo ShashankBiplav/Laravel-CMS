@@ -4,8 +4,12 @@
     <h1>All Posts</h1>
     @if(session()->has('message'))
       <div class="alert alert-success">{{session()->get('message')}}</div>
+    @elseif(session()->has('update-post-message'))
+      <div class="alert alert-success">{{session()->get('update-post-message')}}</div>
     @elseif(session()->has('error'))
       <div class="alert alert-success">{{session()->get('error')}}</div>
+    @elseif(session()->has('update-post-error'))
+      <div class="alert alert-success">{{session()->get('update-post-message')}}</div>
     @else
       <div></div>
     @endif
@@ -50,7 +54,7 @@
                 <td>
                   <form action="{{route('posts.get',$post->id)}}" method="get">
                     @csrf
-                  <button class="btn btn-outline-warning btn-block"> Edit</button>
+                    <button class="btn btn-outline-warning btn-block"> Edit</button>
                     @method('GET')
                   </form>
                   <form action="{{route('posts.destroy',$post->id)}}" method="post">
