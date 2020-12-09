@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-  public  function index(){
+  public function index()
+  {
     $posts = Post::all();
-    return view('admin.posts.index',['posts'=> $posts]);
+    return view('admin.posts.index', ['posts' => $posts]);
   }
 
   public function show(Post $post)
@@ -29,10 +30,24 @@ class PostController extends Controller
       'post_image' => 'mimes:jpeg,jpg,png',
       'body' => 'required | min:300'
     ]);
-    if (request('post_image')){
-      $post['post_image'] = $request->post_image->store('images','public');
+    if (request('post_image')) {
+      $post['post_image'] = $request->post_image->store('images', 'public');
     }
-    auth()->user()->posts()->create($post);
-    return redirect()->back();
+    try {
+      auth()->user()->posts()->create($post);
+      return redirect()->route('posts.index')->with('create-post-message', 'Post uploaded successfully!');
+    } catch (\Exception $e) {
+      return redirect()->route('posts.index')->with('create-post-error', 'Unable to upload post!');
+    }
+  }
+
+  public function destroy(Post $post)
+  {
+    try {
+      $post->delete();
+      return redirect()->back()->with('message', 'Deleting post was successful');
+    } catch (\Exception $e) {
+      return redirect()->back()->with('error', 'Deleting post was unsuccessful');
+    }
   }
 }
