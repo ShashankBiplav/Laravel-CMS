@@ -30,7 +30,7 @@ class PostController extends Controller
       'body' => 'required | min:300'
     ]);
     if (request('post_image')){
-      $post['post_image'] = $request->post_image->store('images');
+      $post['post_image'] = $request->post_image->store('images','public');
     }
     auth()->user()->posts()->create($post);
     return redirect()->back();

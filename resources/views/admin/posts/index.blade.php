@@ -12,6 +12,7 @@
             <thead>
             <tr>
               <th>Id</th>
+              <th>Posted By</th>
               <th>Title</th>
               <th>Cover Image</th>
               <th>Created At</th>
@@ -21,6 +22,7 @@
             <tfoot>
             <tr>
               <th>Id</th>
+              <th>Posted By</th>
               <th>Title</th>
               <th>Cover Image</th>
               <th>Created At</th>
@@ -31,6 +33,7 @@
             @forelse($posts as $post)
             <tr>
               <td>{{$post->id}}</td>
+              <td>{{$post->user->name}}</td>
               <td>{{$post->title}}</td>
               <td><img height="40px" src="{{$post->post_image}}" alt=""></td>
               <td>{{$post->created_at->diffForHumans()}}</td>
