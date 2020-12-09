@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
   public  function index(){
-    return view('admin.posts.index');
+    $posts = Post::all();
+    return view('admin.posts.index',['posts'=> $posts]);
   }
 
   public function show(Post $post)
@@ -23,15 +24,15 @@ class PostController extends Controller
 
   public function store(Request $request)
   {
-    $inputs = $request->validate([
+    $post = $request->validate([
       'title' => 'required | min:8 | max:250',
       'post_image' => 'mimes:jpeg,jpg,png',
       'body' => 'required | min:300'
     ]);
     if (request('post_image')){
-      $inputs['post_image'] = $request->post_image->store('images');
+      $post['post_image'] = $request->post_image->store('images');
     }
-    auth()->user()->posts()->create($inputs);
+    auth()->user()->posts()->create($post);
     return redirect()->back();
   }
 }
