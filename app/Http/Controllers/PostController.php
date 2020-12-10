@@ -9,7 +9,7 @@ class PostController extends Controller
 {
   public function index()
   {
-    $posts = Post::all();
+    $posts = auth()->user()->posts;
     return view('admin.posts.index', ['posts' => $posts]);
   }
 
@@ -58,9 +58,8 @@ class PostController extends Controller
     }
     $post->title = $validatedPost['title'];
     $post->body = $validatedPost['body'];
-    auth()->user()->posts()->save($post);
     try {
-      auth()->user()->posts()->save($post);
+      $post->update();
       return redirect()->route('posts.index')->with('update-post-message', 'Post updated successfully!');
     } catch (\Exception $e) {
       return redirect()->route('posts.index')->with('update-post-error', 'Unable to update post!');
