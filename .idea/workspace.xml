@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a1c175cd-ec7e-4e8d-9063-6a05ba393bd6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_10_121901_create_permissions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_10_121901_create_permissions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_10_121923_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_10_121923_create_roles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_10_122620_create_users_permission_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_10_122620_create_users_permission_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_10_122739_create_user_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_10_122739_create_user_roles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_10_122927_create_roles_permissions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_10_122927_create_roles_permissions_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +197,7 @@
       <workItem from="1607490264005" duration="63000" />
       <workItem from="1607491248475" duration="151000" />
       <workItem from="1607508024655" duration="11223000" />
-      <workItem from="1607589291429" duration="6272000" />
+      <workItem from="1607589291429" duration="7196000" />
     </task>
     <servers />
   </component>

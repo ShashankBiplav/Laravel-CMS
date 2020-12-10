@@ -6,26 +6,28 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUserRolesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('role_user', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('role_user', function (Blueprint $table) {
+      $table->primary(['user_id', 'role_id']);
+      $table->foreignId('user_id')->constrained()->onDelete('cascade');
+      $table->foreignId('role_id')->constrained()->onDelete('cascade');
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('role_user');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('role_user');
+  }
 }

@@ -6,26 +6,28 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRolesPermissionsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('permission_role', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('permission_role', function (Blueprint $table) {
+      $table->unique(['permission_id', 'role_id']);
+      $table->foreignId('permission_id')->constrained()->onDelete('cascade');
+      $table->foreignId('role_id')->constrained()->onDelete('cascade');
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('permission_role');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('permission_role');
+  }
 }
