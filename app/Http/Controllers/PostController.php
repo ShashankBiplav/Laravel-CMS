@@ -20,11 +20,14 @@ class PostController extends Controller
 
   public function create()
   {
+    $this->authorize('create',Post::class);
     return view('admin.posts.create');
   }
 
   public function store(Request $request)
   {
+    $this->authorize('create',Post::class);
+
     $post = $request->validate([
       'title' => 'required | min:8 | max:250',
       'post_image' => 'mimes:jpeg,jpg,png',
@@ -71,6 +74,7 @@ class PostController extends Controller
 
   public function destroy(Post $post)
   {
+    $this->authorize('delete',$post);
     try {
       $post->delete();
       return redirect()->back()->with('message', 'Deleting post was successful');
