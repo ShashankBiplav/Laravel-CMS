@@ -43,6 +43,7 @@ class PostController extends Controller
 
   public function getPost(Post $post)
   {
+    $this->authorize('view', $post);
     return view('admin.posts.edit', ['post' => $post]);
   }
 
@@ -58,6 +59,8 @@ class PostController extends Controller
     }
     $post->title = $validatedPost['title'];
     $post->body = $validatedPost['body'];
+    //check if the user is authorized to update this post using PostPolicy and then only update
+    $this->authorize('update',$post);
     try {
       $post->update();
       return redirect()->route('posts.index')->with('update-post-message', 'Post updated successfully!');

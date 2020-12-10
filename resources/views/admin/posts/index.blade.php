@@ -52,6 +52,7 @@
                 <td>{{$post->created_at->diffForHumans()}}</td>
                 <td>{{$post->updated_at->diffForHumans()}}</td>
                 <td>
+                  @can('view',$post)
                   <form action="{{route('posts.get',$post->id)}}" method="get">
                     @csrf
                     <button class="btn btn-outline-warning btn-block"> Edit</button>
@@ -62,6 +63,7 @@
                     <button class="btn btn-outline-danger btn-block">Delete</button>
                     @method('DELETE')
                   </form>
+                  @endcan
                 </td>
               </tr>
             @empty
