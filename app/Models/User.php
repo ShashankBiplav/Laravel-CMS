@@ -20,6 +20,7 @@ class User extends Authenticatable
     'name',
     'username',
     'email',
+    'avatar',
     'password',
   ];
 
@@ -42,7 +43,8 @@ class User extends Authenticatable
     'email_verified_at' => 'datetime',
   ];
 
-  public function setPasswordAttribute($value){
+  public function setPasswordAttribute($value)
+  {
     $this->attributes['password'] = bcrypt($value);
   }
 
@@ -63,13 +65,19 @@ class User extends Authenticatable
 
   public function userHasRole($role_slug)
   {
-    foreach ($this->roles as $role)
-    {
-      if ($role_slug == $role->slug)
-      {
+    foreach ($this->roles as $role) {
+      if ($role_slug == $role->slug) {
         return true;
       }
       return false;
     }
+  }
+
+  public function getAvatarAttribute($value)
+  {
+    if (strpos($value, 'https://') !== FALSE || strpos($value, 'http://') !== FALSE) {
+      return $value;
+    }
+    return asset('storage/' . $value);
   }
 }
