@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 Auth::routes();
 
@@ -28,5 +29,8 @@ Route::middleware('auth')->group(function () {
   Route::put('/admin/posts/{post}',[PostController::class, 'update'])->name('posts.update');
 
   Route::delete('/admin/posts/{post}',[PostController::class,'destroy'])->name('posts.destroy');
+
+
+  Route::get('/admin/{user}/profile',[UserController::class, 'show'])->name('user.profile.show');
 
 });
