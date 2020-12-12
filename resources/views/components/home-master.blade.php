@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Blog Home - Start Bootstrap Template</title>
+  <title>Blog Home</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -24,7 +24,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="{{route('home')}}">Shashank Biplav</a>
+    <a class="navbar-brand" href="{{route('home')}}">My Blog</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -43,6 +43,9 @@
         @else
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
           </li>
         @endif
         <li class="nav-item">
@@ -136,8 +139,7 @@
     <div class="card my-4">
       <h5 class="card-header">Side Widget</h5>
       <div class="card-body">
-        You can put anything you want inside of these side widgets. They are easy to use, and feature the new
-        Bootstrap 4 card containers!
+        You can put anything you want inside of these side widgets. They are easy to use, and feature the new card containers!
       </div>
     </div>
 
