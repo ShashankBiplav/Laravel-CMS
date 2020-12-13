@@ -12,6 +12,12 @@ class UserController extends Controller
     return view('admin.users.profile', ['user' => $user]);
   }
 
+  public function index()
+  {
+    $users = User::all();
+    return view('admin.users.index',['users' => $users]);
+  }
+
   public function update(User $user, Request $request)
   {
     $validatedInputs = $request->validate([

@@ -55,9 +55,8 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <x-admin-sidebar-posts-links>
-
-    </x-admin-sidebar-posts-links>
+    <x-admin-sidebar-posts-links></x-admin-sidebar-posts-links>
+    <x-admin-sidebar-users-links></x-admin-sidebar-users-links>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
