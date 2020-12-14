@@ -1,6 +1,13 @@
 <x-admin-master>
   @section('content')
-    <h1>All users available here</h1>
+    {{--    <h1>All users</h1>--}}
+    @if(session()->has('delete-user-message'))
+      <div class="alert alert-success">{{session()->get('delete-user-message')}}</div>
+    @elseif(session()->has('delete-user-error'))
+      <div class="alert alert-success">{{session()->get('delete-user-errore')}}</div>
+    @else
+      <div></div>
+    @endif
 
     <div class="card shadow mb-4">
       <div class="card-header py-3">
@@ -16,8 +23,8 @@
               <th>Username</th>
               <th>Avatar</th>
               <th>Registered On</th>
-              <th>Last Updated </th>
-              <th>Salary</th>
+              <th>Last Updated</th>
+              <th>Actions</th>
             </tr>
             </thead>
             <tfoot>
@@ -27,8 +34,8 @@
               <th>Username</th>
               <th>Avatar</th>
               <th>Registered On</th>
-              <th>Last Updated </th>
-              <th>Salary</th>
+              <th>Last Updated</th>
+              <th>Actions</th>
             </tr>
             </tfoot>
             <tbody>
@@ -41,18 +48,18 @@
                 <td>{{$user->created_at->diffForHumans()}}</td>
                 <td>{{$user->updated_at->diffForHumans()}}</td>
                 <td>
-{{--                  @can('view',$post)--}}
-{{--                    <form action="{{route('posts.get',$post->id)}}" method="get">--}}
-{{--                      @csrf--}}
-{{--                      <button class="btn btn-outline-warning btn-block"> Edit</button>--}}
-{{--                      @method('GET')--}}
-{{--                    </form>--}}
-{{--                    <form action="{{route('posts.destroy',$post->id)}}" method="post">--}}
-{{--                      @csrf--}}
-{{--                      <button class="btn btn-outline-danger btn-block">Delete</button>--}}
-{{--                      @method('DELETE')--}}
-{{--                    </form>--}}
-{{--                  @endcan--}}
+                  {{--                  @can('view',$post)--}}
+                  {{--                    <form action="{{route('posts.get',$post->id)}}" method="get">--}}
+                  {{--                      @csrf--}}
+                  {{--                      <button class="btn btn-outline-warning btn-block"> Edit</button>--}}
+                  {{--                      @method('GET')--}}
+                  {{--                    </form>--}}
+                  <form action="{{route('users.destroy',$user->id)}}" method="post">
+                    @csrf
+                    <button class="btn btn-outline-danger btn-block">Delete</button>
+                    @method('DELETE')
+                  </form>
+                  {{--                  @endcan--}}
                 </td>
               </tr>
             @empty

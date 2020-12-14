@@ -15,7 +15,7 @@ class UserController extends Controller
   public function index()
   {
     $users = User::all();
-    return view('admin.users.index',['users' => $users]);
+    return view('admin.users.index', ['users' => $users]);
   }
 
   public function update(User $user, Request $request)
@@ -31,5 +31,15 @@ class UserController extends Controller
     }
     $user->update($validatedInputs);
     return redirect()->back();
+  }
+
+  public function destroy(User $user)
+  {
+    try {
+      $user->delete();
+      return redirect()->route('users.index')->with('delete-user-message', 'User deleted successfully!');
+    } catch (\Exception $e) {
+      return redirect()->route('users.index')->with('delete-user-error', 'Unable to delete user!');
+    }
   }
 }
